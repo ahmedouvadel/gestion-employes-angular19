@@ -1,0 +1,46 @@
+<header class="header-container">
+  <!-- 🔍 Barre de recherche -->
+  <div class="search-placeholder"></div>
+
+  <!-- ⚙️ Icon settings -->
+  <div class="settings-placeholder"></div>
+
+  <!-- 👤 Avatar + Nom -->
+  <div class="user-info">
+    <div class="user-dropdown" (mouseenter)="showDropdown()" (mouseleave)="scheduleHideDropdown()">
+      <div class="user-header">
+        <div class="user-greeting">
+          <span class="greeting-text">Bonjour,</span>
+          <span class="user-name">{{ username }}</span>
+        </div>
+
+        <div class="avatar">
+          <img [src]="userImage" alt="Avatar Admin" />
+        </div>
+      </div>
+
+      <!-- 🔽 Dropdown -->
+      @if (dropdownVisible) {
+        <div class="dropdown" (mouseenter)="showDropdown()" (mouseleave)="scheduleHideDropdown()">
+          <a class="dropdown-item" (click)="openLogoutDialog()">
+            <i class="bi bi-box-arrow-right mr-2"></i> Logout
+          </a>
+        </div>
+      }
+    </div>
+  </div>
+
+  <!-- 💬 Popup confirmation logout -->
+  <ng-template #logoutDialog>
+    <div class="logout-modal">
+      <div class="logout-modal-body">
+        <img src="/assets/logout.svg" class="logout-img" alt="Logout" />
+        <p class="logout-text">Êtes-vous sûr de vouloir <strong class="text-danger">vous déconnecter</strong> ?</p>
+      </div>
+      <div class="logout-modal-actions">
+        <button class="btn btn-primary" (click)="confirmLogout()">Oui</button>
+        <button class="btn btn-outline" (click)="dialogRef.close()">Non</button>
+      </div>
+    </div>
+  </ng-template>
+</header>

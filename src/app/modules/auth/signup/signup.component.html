@@ -1,0 +1,37 @@
+<div class="container mt-5">
+  <div class="row justify-content-center">
+    <div class="col-md-6 col-lg-5">
+      <div class="card shadow">
+        <div class="card-body">
+          <h3 class="card-title text-center mb-4">Créer un compte</h3>
+
+          <form (ngSubmit)="register()" [formGroup]="signupForm">
+            <div class="mb-3">
+              <label for="name" class="form-label">Nom</label>
+              <input type="text" class="form-control" id="name" formControlName="name" placeholder="Votre nom complet" />
+            </div>
+
+            <div class="mb-3">
+              <label for="email" class="form-label">Adresse Email</label>
+              <input type="email" class="form-control" id="email" formControlName="email" placeholder="exemple@email.com" />
+            </div>
+
+            <div class="mb-3">
+              <label for="password" class="form-label">Mot de passe</label>
+              <input type="password" class="form-control" id="password" formControlName="password" placeholder="••••••••" />
+            </div>
+
+            <div class="d-grid">
+              <button type="submit" class="btn btn-primary" (click)="register()">S'inscrire</button>
+            </div>
+          </form>
+
+          <p class="text-center mt-3">
+            Déjà inscrit ?
+            <a (click)="goToLogin()">Se connecter</a>
+          </p>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

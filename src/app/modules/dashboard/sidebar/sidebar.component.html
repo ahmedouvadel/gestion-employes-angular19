@@ -1,0 +1,28 @@
+<mat-drawer-container class="drawer-container">
+  <mat-drawer class="sidebar" mode="side" opened>
+    <div class="logo-container">
+      <img src="/assets/logo.svg" class="logo" alt="Logo" />
+    </div>
+
+    <mat-divider></mat-divider>
+
+    <h2 mat-subheader class="section-title">APPLICATIONS</h2>
+
+    <mat-nav-list class="row">
+      <a
+        mat-list-item
+        *ngFor="let item of navItems"
+        [routerLink]="item.route"
+        routerLinkActive="active-link"
+        class="nav-link"
+      >
+        <mat-icon class="nav-icon">{{ item.icon }}</mat-icon>
+        {{ item.label }}
+      </a>
+    </mat-nav-list>
+  </mat-drawer>
+
+  <mat-drawer-content class="drawer-content">
+    <router-outlet></router-outlet>
+  </mat-drawer-content>
+</mat-drawer-container>

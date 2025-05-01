@@ -1,0 +1,50 @@
+<app-header></app-header>
+
+<div class="container mt-4">
+  <div class="card">
+    <div class="card-header">Liste des utilisateurs</div>
+    <div class="card-body">
+      <table class="table table-hover table-bordered">
+        <thead class="thead-dark">
+          <tr>
+            <th>#ID</th>
+            <th>Nom</th>
+            <th>Email</th>
+            <th>Créé le</th>
+            <th>Actions</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let user of users">
+            <td>{{ user.id }}</td>
+            <td>{{ user.name }}</td>
+            <td>{{ user.email }}</td>
+            <td>{{ user.created_at | date: 'short' }}</td>
+            <td>
+              <a class="text-danger" (click)="confirmDelete(user.id)">
+                <mat-icon>delete</mat-icon>
+              </a>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+
+      <div *ngIf="users.length === 0" class="alert alert-secondary">
+        Aucun utilisateur trouvé.
+      </div>
+    </div>
+  </div>
+
+  <!-- 🔴 Modal de confirmation -->
+  <div *ngIf="showConfirmDialog" class="modal-backdrop">
+    <div class="modal-dialog">
+      <div class="modal-content p-3">
+        <p>Voulez-vous vraiment <strong class="text-danger">supprimer</strong> cet utilisateur ?</p>
+        <div class="d-flex justify-content-end gap-2 mt-3">
+          <button class="btn btn-outline-secondary" (click)="cancelDelete()">Annuler</button>
+          <button class="btn btn-danger" (click)="deleteUser()">Confirmer</button>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
