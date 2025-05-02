@@ -1,0 +1,34 @@
+<!-- ✅ add-employe.component.html avec Bootstrap -->
+<div class="modal-content bg-white p-4 rounded shadow">
+  <div class="modal-header">
+    <h5 class="modal-title">Ajouter un employé</h5>
+    <button type="button" class="btn-close" aria-label="Close" (click)="dialogRef.close()"></button>
+  </div>
+
+  <form [formGroup]="form" (ngSubmit)="submit()" class="modal-body">
+    <div class="mb-3">
+      <label class="form-label">Prénom</label>
+      <input type="text" class="form-control" formControlName="first_name" placeholder="Prénom">
+    </div>
+
+    <div class="mb-3">
+      <label class="form-label">Nom</label>
+      <input type="text" class="form-control" formControlName="last_name" placeholder="Nom">
+    </div>
+
+    <div class="mb-3">
+      <label class="form-label">Email</label>
+      <input type="email" class="form-control" formControlName="email" placeholder="Email">
+    </div>
+
+    <div class="mb-3">
+      <label class="form-label">ID Département</label>
+      <input type="number" class="form-control" formControlName="department_id" placeholder="ID Département">
+    </div>
+
+    <div class="modal-footer d-flex justify-content-end">
+      <button type="submit" class="btn btn-primary" [disabled]="form.invalid">Ajouter</button>
+      <button type="button" class="btn btn-secondary" (click)="dialogRef.close()">Annuler</button>
+    </div>
+  </form>
+</div>

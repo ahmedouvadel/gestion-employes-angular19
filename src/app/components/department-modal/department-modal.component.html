@@ -1,0 +1,27 @@
+<div class="modal-content bg-white p-4 rounded shadow-lg w-100">
+  <h2 class="mb-3 h5 fw-bold text-center">
+    {{ data.department ? 'Modifier un département' : 'Ajouter un département' }}
+  </h2>
+
+  <form [formGroup]="form" (ngSubmit)="submit()" class="d-flex flex-column gap-3">
+    <div class="form-group">
+      <label for="name">Nom du département</label>
+      <input
+        id="name"
+        type="text"
+        formControlName="name"
+        class="form-control"
+        placeholder="Ex: Informatique"
+      />
+    </div>
+
+    <div class="d-flex justify-content-end gap-2 mt-3">
+      <button type="submit" class="btn btn-primary" [disabled]="form.invalid">
+        {{ data.department ? 'Enregistrer' : 'Ajouter' }}
+      </button>
+      <button type="button" class="btn btn-outline-secondary" (click)="cancel()">
+        Annuler
+      </button>
+    </div>
+  </form>
+</div>

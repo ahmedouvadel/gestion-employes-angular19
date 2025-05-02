@@ -44,7 +44,10 @@ button {
   height: 40px;
   margin-left: 20px;
 }
+.btn2{
+  background-color: rgb(98, 98, 233);
 
+}
 .card-body {
   display: flex;
   gap: 30px;
@@ -120,4 +123,39 @@ body {
     width: auto;
     height: auto;
   }
+}.modal-backdrop {
+  position: fixed;
+  inset: 0;
+  background-color: rgba(0, 0, 0, 0.4);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 1050;
+}
+
+.modal-dialog {
+  background-color: #ffffff;
+  border-radius: 8px;
+  padding: 1.5rem;
+  max-width: 400px;
+  width: 90%;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+}
+
+.modal-content {
+  width: 100%;
+}
+
+.modal-title {
+  font-weight: 600;
+  font-size: 1.2rem;
+}
+
+.modal-content p {
+  margin: 0;
+  font-size: 1rem;
+}
+
+.modal-content .btn {
+  min-width: 100px;
 }

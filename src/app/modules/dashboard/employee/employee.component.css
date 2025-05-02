@@ -43,6 +43,7 @@ button {
 .btn {
   height: 40px;
   margin-left: 20px;
+  background-color: rgb(98, 98, 233);
 }
 
 .card-body {
@@ -120,4 +121,22 @@ body {
     width: auto;
     height: auto;
   }
+}
+.modal-backdrop {
+  position: fixed;
+  inset: 0;
+  background-color: rgba(0, 0, 0, 0.4);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 1050;
+}
+
+.modal-dialog {
+  background-color: #fff;
+  border-radius: 8px;
+  padding: 1.5rem;
+  max-width: 400px;
+  width: 90%;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
 }

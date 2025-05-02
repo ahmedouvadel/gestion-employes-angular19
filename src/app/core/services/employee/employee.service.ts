@@ -18,6 +18,10 @@ export class EmployeeService {
     return this.http.post<Employee>(this.api, data);
   }
 
+  update(id: number, data: Partial<Employee>): Observable<Employee> {
+    return this.http.put<Employee>(`${this.api}/${id}`, data);
+  }
+
   delete(id: number): Observable<void> {
     return this.http.delete<void>(`${this.api}/${id}`);
   }
